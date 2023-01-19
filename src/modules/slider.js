@@ -29,7 +29,7 @@ const slider = () => {
     }
   })
 
-  const swiper2 = new Swiper('.container', {
+  const swiper2 = new Swiper('.container.swiper', {
     modules: [Navigation, Grid],
     navigation: {
       nextEl: '.services__arrow--right ',

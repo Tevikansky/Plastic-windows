@@ -8,12 +8,12 @@ modal();
 slider();
 timer('23 january 2023');
 validator();
-sendForm({
-  formName: 'action-form',
-  someElem: [
-    {
-      type: 'block',
-      id: 'total'
-    }
-  ]
-});
+// sendForm({
+//   formName: 'action-form',
+//   someElem: [
+//     {
+//       type: 'block',
+//       id: 'total'
+//     }
+//   ]
+// });
