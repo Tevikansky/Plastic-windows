@@ -8,12 +8,15 @@ modal();
 slider();
 timer('23 january 2023');
 validator();
-// sendForm({
-//   formName: 'action-form',
-//   someElem: [
-//     {
-//       type: 'block',
-//       id: 'total'
-//     }
-//   ]
-// });
+sendForm({
+  formId: 'action-form',
+});
+sendForm({
+  formId: 'action-form2',
+});
+sendForm({
+  formId: 'callback-form',
+});
+sendForm({
+  formId: 'application-form',
+});

@@ -1667,6 +1667,25 @@ input.error {
   transform: rotate(90deg);
   z-index: 1;
 }
+.sk-spinner-pulse {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  background-color: black;
+  border-radius: 100%;
+  animation: sk-spinner-pulse 1.0s infinite ease-in-out;
+}
+
+@keyframes sk-spinner-pulse {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
 
 @media (min-width: 576px) {
   .benefits-wrap {

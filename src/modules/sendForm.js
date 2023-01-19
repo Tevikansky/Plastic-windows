@@ -1,20 +1,19 @@
 const sendForm = ({
-  // formName,
-  // someElem = []
+  formId
 }) => {
-  const form = document.querySelector(`[name=action-form]`);
+  const form = document.querySelector(`[name=${formId}]`);
   const statusBlock = document.createElement('div');
   const statusLoad = document.createElement('div');
   const loadText = "Загрузка..."
   const errorText = "Ошибка..."
   const successText = "Спасибо! Наш менеджер с вами свяжется!"
-  const timer = () => {
+  const timer = (input) => {
     setTimeout(() => {
-      statusBlock.remove()
+      statusBlock.remove();
     }, 5000)
 
   }
- 
+
 
   const validate = (list) => {
     let success = true
@@ -23,6 +22,8 @@ const sendForm = ({
       if (
         ((input.name === "fio") && (input.value.length < 2)) ||
         ((input.name === "phone") && ((input.value.length < 18)))) {
+        input.style.border = "1px solid red";
+        setTimeout(()=>{input.style.border = " 1px solid #dfdfdf"},5000)
         success = false
       }
     })
@@ -46,9 +47,12 @@ const sendForm = ({
 
     statusBlock.style = 'color: grey'
     statusBlock.textContent = loadText
+
     statusLoad.classList.add("sk-spinner", "sk-spinner-pulse")
     form.append(statusBlock)
     form.append(statusLoad)
+
+
 
 
 
@@ -57,14 +61,7 @@ const sendForm = ({
       formBody[key] = val
     })
 
-    // someElem.forEach(elem => {
-    //   const element = document.getElementById(elem.id)
-    //   if (elem.type === 'block') {
-    //     formBody[elem.id] = element.textContent
-    //   } else if (elem.type === 'input') {
-    //     formBody[elem.id] = element.value
-    //   }
-    // })
+
 
 
     if (validate(formElements)) {
@@ -90,7 +87,18 @@ const sendForm = ({
     timer()
   }
 
-  
+  try {
+    if (!form) {
+      throw new Error('Верните форму на место!')
+    }
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      submitForm();
+    })
+  } catch (error) {
+    console.log(error.message)
+  }
 
 
 }
