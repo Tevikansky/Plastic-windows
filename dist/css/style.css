@@ -1588,6 +1588,7 @@ input.error {
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.45);
+  z-index: 2;
 }
 
 .benefits-wrap {
@@ -1608,7 +1609,9 @@ input.error {
   margin-top: 30px;
 }
 
-.benefits__arrow {
+.benefits__arrow,
+.benefits__arrow--right,
+.benefits__arrow--left {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -1662,18 +1665,17 @@ input.error {
   right: 25px;
   bottom: 25px;
   transform: rotate(90deg);
+  z-index: 1;
 }
 
 @media (min-width: 576px) {
   .benefits-wrap {
     width: 100%;
-
   }
 }
 
 @media (min-width: 768px) {
   .benefits-wrap {
     width: 100%;
-
   }
 }

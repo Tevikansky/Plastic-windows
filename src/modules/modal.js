@@ -8,6 +8,7 @@ const modal = () => {
   const servicesModal = document.querySelector('.services-modal')
   const overlay = document.querySelector('.overlay')
   const services = document.getElementById('services')
+  const smoothScroll = document.querySelector('.smooth-scroll')
 
   const blockBody = () => {
     const body = document.body;
@@ -35,6 +36,7 @@ const modal = () => {
     e.style.left = 0
     e.style.transform = `transform: translateX(-50%);`
     e.style.display = "flex"
+    smoothScroll.style.display = "none"
     animate({
       duration: 700,
       timing(timeFraction) {
@@ -58,8 +60,12 @@ const modal = () => {
     if (e.target.closest('.header-modal__close') || e.target.closest('.overlay') || e.target.closest('.services-modal__close')) {
       unBlockBody();
       headerModal.style.display = "none"
+      headerModal.style.left = 'auto'
       servicesModal.style.display = "none"
+      servicesModal.style.left = 'auto'
       overlay.style.display = "none"
+      smoothScroll.style.display = "block"
+
     }
   })
   services.addEventListener('click', (e) => {
