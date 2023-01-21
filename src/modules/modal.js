@@ -9,6 +9,7 @@ const modal = () => {
   const overlay = document.querySelector('.overlay')
   const services = document.getElementById('services')
   const smoothScroll = document.querySelector('.smooth-scroll')
+  const photo = document.querySelector('modal-window')
 
   const blockBody = () => {
     const body = document.body;
@@ -65,7 +66,7 @@ const modal = () => {
       servicesModal.style.left = 'auto'
       overlay.style.display = "none"
       smoothScroll.style.display = "block"
-
+      
     }
   })
   services.addEventListener('click', (e) => {
