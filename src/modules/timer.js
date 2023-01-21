@@ -3,6 +3,8 @@ const timer = (deadline) => {
   const timerHours = document.querySelectorAll('.count_2 > span')
   const timerMinutes = document.querySelectorAll('.count_3 > span')
   const timerSeconds = document.querySelectorAll('.count_4 > span')
+  const countdownText = document.querySelectorAll('.countdown-text')
+  const orderFormSubheading = document.querySelectorAll('.order-form-subheading')
   let timerId = null;
 
   const getTimeRemaining = () => {
@@ -34,6 +36,12 @@ const timer = (deadline) => {
       hours = "00";
       minutes = "00";
       seconds = "00";
+      countdownText.forEach((e) => {
+        e.textContent = "Акция завершена, скоро будет новая!";
+      })
+      orderFormSubheading.forEach((e) => {
+        e.textContent = "для уточнения размера скидки";
+      })
       clearInterval(timerId);
     }
 
@@ -52,13 +60,13 @@ const timer = (deadline) => {
     let getTime = getTimeRemaining();
     changeTime(timerDays, getTime.days);
     changeTime(timerHours, getTime.hours);
-    changeTime(timerMinutes,getTime.minutes);
+    changeTime(timerMinutes, getTime.minutes);
     changeTime(timerSeconds, getTime.seconds);
   }
 
-  const changeTime = (timer, time)=> {
-    timer.forEach((timer)=>{
-      timer.textContent =time;
+  const changeTime = (timer, time) => {
+    timer.forEach((timer) => {
+      timer.textContent = time;
     })
   }
 
