@@ -23,7 +23,9 @@ const sendForm = ({
         ((input.name === "fio") && (input.value.length < 2)) ||
         ((input.name === "phone") && ((input.value.length < 18)))) {
         input.style.border = "1px solid red";
-        setTimeout(()=>{input.style.border = " 1px solid #dfdfdf"},5000)
+        setTimeout(() => {
+          input.style.border = " 1px solid #dfdfdf"
+        }, 5000)
         success = false
       }
     })
@@ -45,7 +47,8 @@ const sendForm = ({
     const formData = new FormData(form)
     const formBody = {}
 
-    statusBlock.style = 'color: grey'
+    statusBlock.style = 'color: grey; text-align: center; padding-top: 3px'
+
     statusBlock.textContent = loadText
 
     statusLoad.classList.add("sk-spinner", "sk-spinner-pulse")
