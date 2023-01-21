@@ -11,6 +11,9 @@ const validator = () => {
     })
   })
  
+
+
+  
   // inputs.forEach((input) => {
   //   input.addEventListener('input', (e) => {
   //     e.target.value = e.target.value.replace(/\D+/, '')
