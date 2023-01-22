@@ -15,7 +15,7 @@ const validator = () => {
     const inputs = calculator.querySelectorAll('input')
     inputs.forEach((input) => {
       input.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/D+/g, '')
+        e.target.value = e.target.value.replace(/[\-\D]+/g, '')
       })
     })
   }
