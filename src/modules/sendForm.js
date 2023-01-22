@@ -1,7 +1,8 @@
 const sendForm = ({
-  formId
+  formId,
+  someElem = []
 }) => {
-  const form = document.querySelector(`[name=${formId}]`);
+  const form = formId;
   const statusBlock = document.createElement('div');
   const statusLoad = document.createElement('div');
   const loadText = "Загрузка..."
@@ -43,7 +44,7 @@ const sendForm = ({
   }
 
   const submitForm = () => {
-    const formElements = form.querySelectorAll('input')
+    const formElements = form.querySelectorAll('[type=text]')
     const formData = new FormData(form)
     const formBody = {}
 
@@ -64,7 +65,13 @@ const sendForm = ({
       formBody[key] = val
     })
 
-
+    someElem.forEach(elem => {
+      
+      const element = document.getElementById(elem.name)
+      if (element && elem.type === 'input' && (element.textContent !== "" && element.textContent !== '0')) {
+        formBody[elem.name] = element.textContent
+      } 
+    })
 
 
     if (validate(formElements)) {
@@ -74,7 +81,9 @@ const sendForm = ({
           statusLoad.remove()
 
           formElements.forEach(input => {
+   
             input.value = "";
+
           })
         })
         .catch(error => {

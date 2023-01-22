@@ -6,10 +6,17 @@ const modal = () => {
   const header = document.getElementById('header')
   const headerModal = document.querySelector('.header-modal')
   const servicesModal = document.querySelector('.services-modal')
+  const dataset = servicesModal.querySelector('[name=subject]')
+  const pageActiveHeader = headerModal.querySelector('[name=page]')
+  const pageActiveServices = servicesModal.querySelector('[name=page]')
   const overlay = document.querySelector('.overlay')
   const services = document.getElementById('services')
   const smoothScroll = document.querySelector('.smooth-scroll')
   const photo = document.querySelector('modal-window')
+  const page = document.querySelector('li.active').innerText
+
+
+
 
   const blockBody = () => {
     const body = document.body;
@@ -54,6 +61,7 @@ const modal = () => {
   header.addEventListener('click', (e) => {
     if (e.target.closest('.fancyboxModal')) {
       overlay.style.display = "flex"
+      pageActiveHeader.value = page;
       modalAnimate(headerModal)
     }
   })
@@ -66,13 +74,16 @@ const modal = () => {
       servicesModal.style.left = 'auto'
       overlay.style.display = "none"
       smoothScroll.style.display = "block"
-      
+
     }
   })
   services.addEventListener('click', (e) => {
     if (e.target.closest('.service-button')) {
-      overlay.style.display = "flex"
-      modalAnimate(servicesModal)
+
+      overlay.style.display = "flex";
+      pageActiveServices.value = page;
+      dataset.value = e.srcElement.dataset.subject;
+      modalAnimate(servicesModal);
 
     }
   })
