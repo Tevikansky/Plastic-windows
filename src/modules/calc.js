@@ -7,11 +7,12 @@ const calc = () => {
 
   const countCalc = () => {
     const calcBalcony = +balcony.options[balcony.selectedIndex].value;
+
     const calcSquare = square.value;
     let totalValue = 0;
-    if (!Number(material.value)) {
+    if (!Number(material.value) && Number(calcBalcony)) {
       totalValue = calcBalcony * calcSquare
-    } else if (Number(material.value)) {
+    } else if (Number(material.value) && Number(calcBalcony)) {
       totalValue = calcBalcony * calcSquare * material.value
     } else {
       totalValue = 0
