@@ -1,6 +1,6 @@
 const validator = () => {
   const calculator = document.getElementById('calc')
-  const inputs = calculator.querySelectorAll('input')
+
   const names = document.querySelectorAll("[name=fio]")
   const phones = document.querySelectorAll("[name=phone]")
 
@@ -11,13 +11,15 @@ const validator = () => {
     })
   })
 
-  
-  inputs.forEach((input) => {
-    input.addEventListener('input', (e) => {
-      e.target.value = e.target.value.replace(/D+/g, '')
+  if (calculator) {
+    const inputs = calculator.querySelectorAll('input')
+    inputs.forEach((input) => {
+      input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/D+/g, '')
+      })
     })
-  })
- 
+  }
+
   phones.forEach((input) => {
     input.addEventListener('input', (e) => {
 

@@ -1,10 +1,11 @@
 const calc = () => {
+
   const balcony = document.getElementById('calc-type')
   const material = document.getElementById('calc-type-material')
   const square = document.getElementById('calc-input')
   const total = document.getElementById('calc-total')
   const calcBlock = document.getElementById('calc')
-
+if (calcBlock) {
   const countCalc = () => {
     const calcBalcony = +balcony.options[balcony.selectedIndex].value;
 
@@ -27,6 +28,7 @@ const calc = () => {
     countCalc();
 
   })
+}
 }
 
 export default calc
