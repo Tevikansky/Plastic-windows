@@ -12,9 +12,9 @@ if (calcBlock) {
     const calcSquare = square.value;
     let totalValue = 0;
     if (!Number(material.value) && Number(calcBalcony)) {
-      totalValue = calcBalcony * calcSquare
+      totalValue = 1000 * calcBalcony * calcSquare
     } else if (Number(material.value) && Number(calcBalcony)) {
-      totalValue = calcBalcony * calcSquare * material.value
+      totalValue = 1000 * calcBalcony * calcSquare * material.value
     } else {
       totalValue = 0
     }
